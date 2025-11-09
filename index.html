@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style>
-        .active{
+        .active {
             background-color: #FF1F3D;
             color: white;
         }
@@ -19,15 +19,24 @@
 
 <body>
     <header>
-        <nav class="w-11/12 mx-auto flex justify-between border-b-2 py-[32px] border-[#17171720]">
+        <nav class="w-11/12 mx-auto lg:flex justify-between border-b-2 py-[32px] border-[#17171720]">
             <div class="logo">
-                <img class="w-[175px] h-[39px]" src="assets/Logo.png" alt="">
+                <img class="w-[175px] h-[39px] " src="assets/Logo.png" alt="">
             </div>
             <div class="Sort">
-                <button class="btn">Sort by view</button>
+                <label class="input">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                            stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input id="search-input" type="search" required placeholder="Search" />
+                </label>
             </div>
             <div class="blogs">
-                <button class="btn bg-[#FF1F3D] text-white">Blog</button>
+                <button class="btn bg-[#FF1F3D] text-white ">Sort By view</button>
             </div>
         </nav>
     </header>
@@ -38,8 +47,12 @@
         </div>
     </nav>
 
-    <section id="video-container" class="w-11/12 mx-auto grid grid-cols-4 gap-5">
-        
+    <section id="loader" class="text-center py-[200px] hidden">
+        <span class="loading loading-spinner text-primary"></span>
+    </section>
+
+    <section id="video-container" class="w-11/12 mx-auto grid lg:grid-cols-4 gap-5">
+
         <div class="col-span-full flex flex-col justify-center items-center text-center py-[200px]">
             <img class="w-[140px]" src="assets/Icon.png" alt="">
             <h2 class="text-2xl font-bold ">Oops!! Sorry, There is no <br> content here</h2>
@@ -47,19 +60,19 @@
     </section>
 
     <!-- Open the modal using ID.showModal() method -->
-<!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
-<dialog id="video_details" class="modal">
-  <div class="modal-box">
-   <div id="details-container">
-   </div>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+    <dialog id="video_details" class="modal">
+        <div class="modal-box">
+            <div id="details-container">
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 
     <script src="script/index.js"></script>
 </body>
